@@ -1,0 +1,20 @@
+name: Centos002
+version: 1
+formatVersion: 1
+inputs: {}
+resources:
+  Cloud_vSphere_Machine_1:
+    type: Cloud.vSphere.Machine
+    metadata:
+      layoutPosition:
+        - 0
+        - 0
+    properties:
+      cpuCount: 1
+      imageRef: centos-ci
+      totalMemoryMB: 1024
+      cloudConfig: |
+        #cloud-config
+        hostname: ${self.name}
+        runcmd:
+        - date > /tmp/test.txt
