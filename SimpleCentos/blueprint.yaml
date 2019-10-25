@@ -12,4 +12,4 @@ resources:
     properties:
       image: centos
       cpuCount: 1
-      totalMemoryMB: 512
+      totalMemoryMB: 1024
