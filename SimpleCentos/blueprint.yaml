@@ -1,0 +1,15 @@
+name: SimpleCentos
+version: 1
+formatVersion: 1
+inputs: {}
+resources:
+  Cloud_vSphere_Machine_1:
+    type: Cloud.vSphere.Machine
+    metadata:
+      layoutPosition:
+        - 0
+        - 1
+    properties:
+      image: centos
+      cpuCount: 1
+      totalMemoryMB: 512
