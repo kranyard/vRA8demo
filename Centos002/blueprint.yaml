@@ -12,7 +12,7 @@ resources:
     properties:
       cpuCount: 1
       imageRef: centos-ci
-      totalMemoryMB: 1024
+      totalMemoryMB: 2048
       cloudConfig: |
         #cloud-config
         hostname: ${self.name}
