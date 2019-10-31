@@ -1,0 +1,68 @@
+name: CyberRange-Simple
+version: 1
+formatVersion: 1
+inputs: {}
+resources:
+  CR-ms3_nix:
+    type: Cloud.Machine
+    properties:
+      imageRef: ami-0a5b727a8f6719036
+      flavor: tiny
+      networks:
+        - network: '${resource.Attackers.id}'
+      remoteAccess:
+        authentication: keyPairName
+        keyPair: circleci_build
+  CR-Commando:
+    type: Cloud.Machine
+    properties:
+      imageRef: ami-03fa4110dbaf0f7c3
+      flavor: tiny
+      networks:
+        - network: '${resource.Attackers.id}'
+      remoteAccess:
+        authentication: keyPairName
+        keyPair: circleci_build
+  CR-Kali:
+    type: Cloud.Machine
+    properties:
+      image: CR-kali
+      flavor: tiny
+      networks:
+        - network: '${resource.Attackers.id}'
+      remoteAccess:
+        authentication: keyPairName
+        keyPair: circleci_build
+  Attackers:
+    type: Cloud.Network
+    properties:
+      networkType: existing
+      tags:
+        - key: attackers
+  Targets:
+    type: Cloud.Network
+    properties:
+      networkType: existing
+      tags:
+        - key: targets
+  CR-MetaSploitable_3_win2k8:
+    type: Cloud.Machine
+    properties:
+      imageRef: ami-0fbe0b87e91345e83
+      flavor: tiny
+      remoteAccess:
+        authentication: keyPairName
+        keyPair: circleci_build
+      networks:
+        - network: '${resource.Targets.id}'
+  CR-MetaSploitable_3_win2k12:
+    type: Cloud.Machine
+    properties:
+      imageRef: ami-0299a5cc1a34beb11
+      flavor: tiny
+      remoteAccess:
+        authentication: keyPairName
+        keyPair: circleci_build
+      networks:
+        - network: '${resource.Targets.id}'
+
